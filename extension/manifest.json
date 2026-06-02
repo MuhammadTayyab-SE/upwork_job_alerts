@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Upwork Job Alert",
+  "version": "1.0",
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "http://localhost:5000/*",
+    "https://www.upwork.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.upwork.com/nx/find-work/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
